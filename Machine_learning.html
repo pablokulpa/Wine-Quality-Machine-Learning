@@ -1,4 +1,4 @@
-<p>There are the <a href="https://github.com/ekolik/-Python-Analysis_of_wine_quality/blob/master/machine_learning.py">code</a> and its <a href="https://github.com/ekolik/-Python-Analysis_of_wine_quality/blob/master/machine_learning_output.txt">output</a> that cover all the steps described in this section.</p>
+<p>There are the <a href="machine_learning.py">code</a> and its <a href="machine_learning_output.txt">output</a> that cover all the steps described in this section.</p>
 
 <h3 id="decisiontrees">Decision Trees</h3>
 
@@ -26,15 +26,16 @@
 
 <p>The <a href="https://github.com/ekolik/-Python-Analysis_of_wine_quality/blob/master/machine_learning_output.txt">results</a> of the random forest model with <code>25</code> trees for the <strong>red</strong> wine show that the accuracy of the prediction is <code>0.778</code> and the most important predictor is <code>alcohol</code>, followed by <code>volatile acidity</code>, <code>sulphates</code>, and <code>total sulfur dioxide</code>. It is interesting to note that the results of the <em>multivariate regression</em> for the <strong>red</strong> wine mark different set of variables (<code>chlorides</code>, <code>volatile acidity</code>, <code>sulphates</code>, and <code>pH</code>) as the most influential variables in describing the quality of wine.</p>
 
-<p>The <a href="https://github.com/ekolik/-Python-Analysis_of_wine_quality/blob/master/machine_learning_output.txt">results</a> of the random forest model with <code>25</code> trees for the <strong>white</strong> wine show that the accuracy of the prediction is <code>0.816</code> and the most important predictor is <code>alcohol</code>, followed by <code>volatile acidity</code>, and <code>density</code>. It is interesting to notice that the results of the <em>multivariate regression</em> for the <strong>white</strong> wine mark the same set of variables (<code>alcohol</code>, <code>volatile acidity</code>, and <code>density</code>) as the most influential variables in describing the quality of wine.</p>
+<p>The <a href="machine_learning_output.txt">results</a> of the random forest model with <code>25</code> trees for the <strong>white</strong> wine show that the accuracy of the prediction is <code>0.816</code> and the most important predictor is <code>alcohol</code>, followed by <code>volatile acidity</code>, and <code>density</code>. It is interesting to notice that the results of the <em>multivariate regression</em> for the <strong>white</strong> wine mark the same set of variables (<code>alcohol</code>, <code>volatile acidity</code>, and <code>density</code>) as the most influential variables in describing the quality of wine.</p>
 
 <p>Training random forests with different numbers of trees (1-100) shows that, after approximately 20 trees, the subsequent growing of number of trees adds little to the overall accuracy of the forest. It is true for both sets of wine: red and white.</p>
+<center>
+<p><strong>Red wine:</strong></p>
+<img src="red_random_forests.png" alt="" /></p>
 
-<p><strong>Red</strong> wine:
-<img src="https://github.com/ekolik/-Python-Analysis_of_wine_quality/blob/master/red_random_forests.png" alt="" /></p>
-
-<p><strong>White</strong> wine:
-<img src="https://github.com/ekolik/-Python-Analysis_of_wine_quality/blob/master/white_random_forests.png" alt="" /></p>
+<p><strong>White wine:</strong></p>
+<img src="white_random_forests.png" alt="" /></p>
+</center>
 
 <h3 id="lassoregression">Lasso Regression</h3>
 
@@ -42,15 +43,15 @@
 
 <p>Data were randomly split into a training set (70% of the observations) and a test set (30%). The least angle regression algorithm with k=10 fold cross validation was used to estimate the lasso regression model in the training set, and the model was validated using the test set. The change in the cross validation mean squared error at each step was used to identify the best subset of predictor variables.</p>
 
-<p><strong>Red</strong> wine:
-<img src="https://github.com/ekolik/-Python-Analysis_of_wine_quality/blob/master/red_lasso_coef-vs-alph.png" alt="" />
-<img src="https://github.com/ekolik/-Python-Analysis_of_wine_quality/blob/master/red_lasso_mse-vs-alph.png" alt="" /></p>
+<p><strong>Red wine:</strong></p>
+<img src="red_lasso_coef-vs-alph.png" alt="" />
+<img src="red_lasso_mse-vs-alph.png" alt="" /></p>
 
-<p><strong>White</strong> wine:
-<img src="https://github.com/ekolik/-Python-Analysis_of_wine_quality/blob/master/white_lasso_coef-vs-alph.png" alt="" />
-<img src="https://github.com/ekolik/-Python-Analysis_of_wine_quality/blob/master/white_lasso_mse-vs-alph.png" alt="" /></p>
+<p><strong>White wine:</strong></p>
+<img src="white_lasso_coef-vs-alph.png" alt="" />
+<img src="white_lasso_mse-vs-alph.png" alt="" /></p>
 
-<p>Not all predictor variables were retained in the selected models. For the red wine, <code>citric acid</code>, <code>fixed acidity</code>, and <code>free sulfur dioxide</code> variables received zero coefficients, and therefore do not participate in the prediction. The results of the training indicate the <code>alcohol</code>, <code>volatile acidity</code>, and <code>sulphates</code> variables as the most strongly associated with the quality of wine and, therefore, the most influential for the prediction. Interestingly, this results differ from the ones of <a href="https://github.com/ekolik/-Python-Analysis_of_wine_quality/blob/master/Machine_learning.md#random-forests">random forests analysis</a> and <a href="https://github.com/ekolik/-Python-Analysis_of_wine_quality/blob/master/Regression_modeling.md#multiple-regression">multivariate regression</a>. Mean squared error and R-squared values prove the model being robust for testing on new examples. The predictors account for 33% of the variance in the target variable.</p>
+<p>Not all predictor variables were retained in the selected models. For the red wine, <code>citric acid</code>, <code>fixed acidity</code>, and <code>free sulfur dioxide</code> variables received zero coefficients, and therefore do not participate in the prediction. The results of the training indicate the <code>alcohol</code>, <code>volatile acidity</code>, and <code>sulphates</code> variables as the most strongly associated with the quality of wine and, therefore, the most influential for the prediction. Interestingly, this results differ from the ones of random forests analysis</a> and <a href="https://github.com/ekolik/-Python-Analysis_of_wine_quality/blob/master/Regression_modeling.md#multiple-regression">multivariate regression</a>. Mean squared error and R-squared values prove the model being robust for testing on new examples. The predictors account for 33% of the variance in the target variable.</p>
 
 <p>For the white wine, <code>citric acid</code> and <code>fixed acidity</code> variables received zero coefficients, and therefore do not participate in the prediction. The results of the training indicate the <code>alcohol</code>, <code>residual sugar</code>, <code>density</code>, and <code>volatile acidity</code> variables as the most strongly associated with the quality of wine and, therefore, the most influential for the prediction. Interestingly, this results similar to the ones of <a href="https://github.com/ekolik/-Python-Analysis_of_wine_quality/blob/master/Machine_learning.md#random-forests">random forests analysis</a> and <a href="https://github.com/ekolik/-Python-Analysis_of_wine_quality/blob/master/Regression_modeling.md#multiple-regression">multivariate regression</a>. Mean squared error and R-squared values prove the model being robust for testing on new examples. The predictors account for 28% of the variance in the target variable.</p>
 
