@@ -5,12 +5,13 @@
 <p>Here I test the association between the amount of volatile acidity in wine and the quality of wine by building a simple linear regression model with one explanatory variable (the amount of volatile acidity). I do it for both wine sets (red and white) separately.</p>
 
 <p>The scatter-plots reveal negative association between the variables for both wine sets: with the increase in the amount of volatile acidity the quality of wine tends to decrease.</p>
+<center>
+<p><strong>Red wine</strong>:</p>
+<img src="red_vacid_vs_quality.png" alt="" /><
 
-<p><strong>Red wine</strong>:
-<img src="https://github.com/ekolik/-Python-Ahalysis_of_wine_quality/blob/master/red_vacid_vs_quality.png" alt="" /></p>
-
-<p><strong>White wine</strong>:
-<img src="https://github.com/ekolik/-Python-Ahalysis_of_wine_quality/blob/master/white_vacid_vs_quality.png" alt="" /></p>
+<p><strong>White wine</strong>:</p>
+<img src="white_vacid_vs_quality.png" alt="" />
+</center>
 
 <p>Before testing a linear regression model, the explanatory variable (volatile acidity) was centered by subtracting its mean from each observed value. It is interesting to note, that the mean of the volatile acidity is different for each wine set: for the red wine it is <code>0.53</code> and for the white wine - <code>0.28</code>. </p>
 
@@ -29,25 +30,25 @@
 <p>The results of the multivariate regression for the <strong>red</strong> wine showed that the most influential variables in describing the quality of wine are: volatile_acidity (coefficient = <code>-1.0687</code>), chlorides (<code>-1.9288</code>), pH (<code>-0.4173</code>), sulphates (<code>0.8474</code>), and alcohol (<code>0.3055</code>). All variables have p-values = <code>0</code>. The model was constructed using <code>1599</code> observations; the R-squared number is <code>0.346</code> (in other words, 12% of the variability in the quality of wine is described by variation in the selected variables), F = <code>170.3</code> with p = <code>2.66e-145</code> (which mean that the explanatory and response variables are significantly associated). The intercept of the model is <code>5.6360</code>. In other words, all characteristics equal, the quality of red wine would be around 5.6. Sulphates and alcohol are positively associated with the wine quality, while volatile acidity, chlorides, and pH - negatively. To check the quality of the model, I create the following diagnostic plots:</p>
 
 <ul>
-<li><p>The Q-Q plot shows that the residuals follow the fit line in the middle, but slightly deviate at the lower and higher quantiles. This indicated that the residuals do not follow normal distribution perfectly. For the improvement of the model, other explanatory variables might be considered.
-<img src="https://github.com/ekolik/-Python-Analysis_of_wine_quality/blob/master/red_multi_q_q_.png" alt="" /></p></li>
+<li><p>The Q-Q plot shows that the residuals follow the fit line in the middle, but slightly deviate at the lower and higher quantiles. This indicated that the residuals do not follow normal distribution perfectly. For the improvement of the model, other explanatory variables might be considered.</p>
+<img src="red_multi_q_q_.png" alt="" /></li>
 
-<li><p>The plot of residuals again shows that less than 5% of the observations have standardized residuals with an absolute value bigger than 2. Nonetheless, there are still quite a few observations with residuals out of these boundaries. Again, that means that the quality of the model might be improved. <img src="https://github.com/ekolik/-Python-Analysis_of_wine_quality/blob/master/red_multi_resud.png" alt="" /></p></li>
+<li><p>The plot of residuals again shows that less than 5% of the observations have standardized residuals with an absolute value bigger than 2. Nonetheless, there are still quite a few observations with residuals out of these boundaries. Again, that means that the quality of the model might be improved. </p><img src="red_multi_resud.png" alt="" /></li>
 
-<li><p>The leverage plot shows that quite a few observations are outliers (they have residuals greater than 2 or less than -2), but almost all of them have small leverage values, and, therefore, they don't have an undue influence on the estimation of the regression model. Also, there are several cases with higher than average leverage; in particular, there are observation (marked <code>92</code> and <code>151</code>) that are both outliers and have high leverages, and they might be very dramatic in their undue influence on the estimation.
-<img src="https://github.com/ekolik/-Python-Analysis_of_wine_quality/blob/master/red_multi_leverage.png" alt="" /></p></li>
+<li><p>The leverage plot shows that quite a few observations are outliers (they have residuals greater than 2 or less than -2), but almost all of them have small leverage values, and, therefore, they don't have an undue influence on the estimation of the regression model. Also, there are several cases with higher than average leverage; in particular, there are observation (marked <code>92</code> and <code>151</code>) that are both outliers and have high leverages, and they might be very dramatic in their undue influence on the estimation.</p><p>
+<img src="red_multi_leverage.png" alt="" /></li></p>
 </ul>
 
 <p>The results of the multivariate regression for the <strong>white</strong> wine showed that the most influential variables in describing the quality of wine are: volatile_acidity (coefficient = <code>-2.0437</code>, p-value = <code>0</code>), density (<code>36.8919</code>, <code>0</code>), pH (<code>0.1822</code>, <code>0.014</code>), sulphates (<code>0.3162</code>, <code>0.001</code>), and alcohol (<code>0.3925</code>, <code>0</code>). The model was constructed using <code>4898</code> observations; the R-squared number is <code>0.250</code> (in other words, 6.25% of the variability in the quality of wine is described by variation in the selected variables), F = <code>325.9</code> with p = <code>4.08e-302</code> (which mean that the explanatory and response variables are significantly associated). The intercept of the model is <code>5.8779</code>. In other words, all characteristics equal, the quality of red wine would be around 5.9. Density, pH, sulphates, and alcohol are positively associated with the wine quality, while volatile acidity - negatively. To check the quality of the model, I create the following diagnostic plots:</p>
 
 <ul>
 <li><p>The Q-Q plot shows that the residuals follow the fit line in the middle, but highly deviate at the lower and higher quantiles. This indicated that the residuals do not follow normal distribution perfectly. For the improvement of the model, other explanatory variables might be considered.
-<img src="https://github.com/ekolik/-Python-Analysis_of_wine_quality/blob/master/white_multi_q_q_.png" alt="" /></p></li>
+<img src="white_multi_q_q_.png" alt="" /></p></li>
 
-<li><p>The plot of residuals again shows that less than 5% of the observations have standardized residuals with an absolute value bigger than 2. Nonetheless, there are still quite a few observations with residuals out of these boundaries. Again, that means that the quality of the model might be improved. <img src="https://github.com/ekolik/-Python-Analysis_of_wine_quality/blob/master/white_multi_resud.png" alt="" /></p></li>
+<li><p>The plot of residuals again shows that less than 5% of the observations have standardized residuals with an absolute value bigger than 2. Nonetheless, there are still quite a few observations with residuals out of these boundaries. Again, that means that the quality of the model might be improved. <img src="white_multi_resud.png" alt="" /></p></li>
 
 <li><p>The leverage plot shows that quite a few observations are outliers (they have residuals greater than 2 or less than -2), but all of them have small leverage values, and, therefore, they don't have an undue influence on the estimation of the regression model. There is only one sample with higher than average leverage (marked <code>2781</code>), but, not being an outlier, it influences the estimation correctly.
-<img src="https://github.com/ekolik/-Python-Analysis_of_wine_quality/blob/master/white_multi_leverage.png" alt="" /></p></li>
+<img src="white_multi_leverage.png" alt="" /></p></li>
 </ul>
 
 <p>To sum up the results of the multiple regression modeling, the following observations are made:</p>
